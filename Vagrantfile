@@ -13,8 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/focal64"
-  config.winrm.timeout =   1800 # 30 minutes
-  config.vm.boot_timeout = 1800 # 30 minutes
+  #config.winrm.timeout =   1800 # 30 minutes
+  config.vm.boot_timeout = 600 # 30 minutes
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -68,8 +68,6 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      curl -fsSL https://get.docker.com -o get-docker.sh
-     sudo sh ./get-docker.sh --dry-run
-     curl -fsSL https://get.docker.com -o get-docker.sh
-     sudo sh get-docker.sh
+     sudo sh ./get-docker.sh
     SHELL
 end
