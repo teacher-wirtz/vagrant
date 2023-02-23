@@ -13,8 +13,8 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "ubuntu/focal64"
-  #config.winrm.timeout =   1800 # 30 minutes
-  config.vm.boot_timeout = 600 # 30 minutes
+  config.vm.hostname = "docker-host"
+  config.vm.provision "docker"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -65,9 +65,4 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     curl -fsSL https://get.docker.com -o get-docker.sh
-     sudo sh ./get-docker.sh
-    SHELL
 end
