@@ -6,3 +6,4 @@ Ejemplo de uso de vagrant:
 
 ## Notas
 Tuve que añadir config timeout
+
