@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"
   config.vm.hostname = "docker-host"
   config.vm.provision "docker"
+  config.vm.boot_timeout = 600
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
